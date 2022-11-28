@@ -1,0 +1,15 @@
+<div class="card bg-dark border rounded" *ngIf="summoner">
+    <div class="card-body">
+      <h5 class="card-title">{{summoner.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Level: {{summoner.level}}</h6>
+      
+      <app-match-list
+      [puuid] = "summoner.puuid"></app-match-list>
+  </div>
+</div>
+
+<div class="text-center">
+  <span class="red-font" *ngIf="errorMessage">
+    No such summoner exists!
+  </span>
+</div>

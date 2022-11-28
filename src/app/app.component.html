@@ -1,0 +1,28 @@
+<ng-http-loader
+  [backgroundColor]="'#ff0000'"
+></ng-http-loader>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h1 class="mt-4 mb-3">League stats</h1>
+      <div class="form-group">
+        <input type="text" class="form-control mb-3" [(ngModel)]="summonerName" (keyup.enter)="search()" placeholder="enter summoner name" />
+        <button class="btn btn-primary" (click)="search()">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5" *ngIf="!!summonerNameInput">
+    <div class="col-10 offset-1">
+      <app-summoner-details
+      [summonerName] = "summonerNameInput"
+      ></app-summoner-details>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body#body
+{
+    background-color: rgb(8, 8, 8);
+    height:100%;
+    color:white;
+}
+
+// .horizontal-divider {
+//     width:50%;
+//     margin:auto;
+// }
+
+.red-font
+{
+    color: red;
+}
+
+.green-font
+{
+    color: green;
+}
+
+.match-details-container
+{
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+.match-details-container-win
+{
+    background-color: rgb(40, 52, 78);
+    border-color: rgb(83, 131, 232);
+}
+.match-details-container-lose
+{
+    background-color: rgb(99, 39, 50);
+    border-color: rgb(232, 64, 87);
+}
+.font-small
+{
+    font-size: 0.9rem;
+}
+.champion-image
+{
+    width: 5rem;
+}
+.item-image
+{
+    width: 2rem;
+}

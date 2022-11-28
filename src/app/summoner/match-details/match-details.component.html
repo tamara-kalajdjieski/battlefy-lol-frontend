@@ -1,0 +1,62 @@
+<div class="match-details-container rounded" [ngClass]="{'match-details-container-lose': match.outcome === 'Defeat', 'match-details-container-win' : match.outcome === 'Victory' }">
+    <div class="row">
+        <div class="col-3 font-small">
+            <div class="fw-bold">
+                {{match.gameMode}} - {{match.gameType}}
+            </div>
+            <hr class="horizontal-divider">
+            <div class="fw-bold" [ngClass]="{'red-font': match.outcome === 'Defeat', 'green-font' : match.outcome === 'Victory' }">
+                {{match.outcome}}
+            </div>
+            <div class="text-muted">
+                {{match.getGameMinuteDuration() + "m " + match.getGameSecondsDuration()+"s"}}
+            </div>
+        </div>
+        <div class="col-6">
+            <div>
+                <div class="row">
+                    <div class="col-2">
+                        <img class="rounded-circle champion-image" src="{{'assets/images/champion/' + match.championName+'.png'}}"/>
+                    </div>
+                    <div class="col-4">
+                        <span class="fw-bold m-2">{{match.championName}}</span>
+                        <div>
+                            <span *ngFor="let spell of match.spells">
+                                <img class="rounded-circle item-image" src="{{'assets/images/spell/' + spell+'.png'}}"/>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6 fw-bold m-auto font-small">
+                        <div>
+                            <span> {{match.kills}}</span> /
+                            <span class="red-font"> {{match.deaths}}</span> /
+                            <span> {{match.assists}}</span> 
+                            <span class="m-1"> KDA</span>
+                        </div>
+                        <div>
+                            <span> {{match.offencePerks}}</span> /
+                            <span> {{match.defencePerks}}</span> /
+                            <span> {{match.flexPerks}}</span> 
+                            <span class="m-1"> perks</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div>
+                <span *ngFor="let item of match.items">
+                    <img class="rounded-circle item-image" src="{{'assets/images/item/' + item+'.png'}}"/>
+                </span>
+            </div>
+        </div>
+        <div class="col-3 font-small text-muted">
+            <div>{{"Champion level: " + match.championLevel}}</div>
+            <div>{{"Total creeps killed: " + match.totalCreepScore}}</div>
+            <div>Creeps per minute {{match.getCreepsPerMinute() | number:'1.2-2' }}</div>
+            <div>{{"Total gold earned: " + match.goldEarned}}</div>
+            <div>Gold per minute {{match.getGoldPerMinute() | number: '1.2-2'}}</div>
+        </div>
+    </div>
+    
+</div>
